@@ -1,0 +1,12 @@
+/Users/c-villain/Developer/OTUS_algo/HW1/OTUS_algo/HW1/bin/Debug/netcoreapp3.1/HW1.deps.json
+/Users/c-villain/Developer/OTUS_algo/HW1/OTUS_algo/HW1/bin/Debug/netcoreapp3.1/HW1.runtimeconfig.json
+/Users/c-villain/Developer/OTUS_algo/HW1/OTUS_algo/HW1/bin/Debug/netcoreapp3.1/HW1.runtimeconfig.dev.json
+/Users/c-villain/Developer/OTUS_algo/HW1/OTUS_algo/HW1/bin/Debug/netcoreapp3.1/HW1.dll
+/Users/c-villain/Developer/OTUS_algo/HW1/OTUS_algo/HW1/bin/Debug/netcoreapp3.1/HW1.pdb
+/Users/c-villain/Developer/OTUS_algo/HW1/OTUS_algo/HW1/obj/Debug/netcoreapp3.1/HW1.csprojAssemblyReference.cache
+/Users/c-villain/Developer/OTUS_algo/HW1/OTUS_algo/HW1/obj/Debug/netcoreapp3.1/HW1.AssemblyInfoInputs.cache
+/Users/c-villain/Developer/OTUS_algo/HW1/OTUS_algo/HW1/obj/Debug/netcoreapp3.1/HW1.AssemblyInfo.cs
+/Users/c-villain/Developer/OTUS_algo/HW1/OTUS_algo/HW1/obj/Debug/netcoreapp3.1/HW1.csproj.CoreCompileInputs.cache
+/Users/c-villain/Developer/OTUS_algo/HW1/OTUS_algo/HW1/obj/Debug/netcoreapp3.1/HW1.dll
+/Users/c-villain/Developer/OTUS_algo/HW1/OTUS_algo/HW1/obj/Debug/netcoreapp3.1/HW1.pdb
+/Users/c-villain/Developer/OTUS_algo/HW1/OTUS_algo/HW1/obj/Debug/netcoreapp3.1/HW1.genruntimeconfig.cache
