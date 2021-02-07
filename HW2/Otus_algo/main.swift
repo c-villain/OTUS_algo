@@ -177,6 +177,27 @@ import Foundation
 //[12] - x
 //[13] - x
 //[14] - x
-let prime_3b = CounterOfPrimes(.improvedDevisorEnumerated)
-let tester_3b = Tester(path: "/Users/c-villain/Downloads/5.Primes", task: prime_3b)
-tester_3b.RunTest()
+//let prime_3b = CounterOfPrimes(.improvedDevisorEnumerated)
+//let tester_3b = Tester(path: "/Users/c-villain/Downloads/5.Primes", task: prime_3b)
+//tester_3b.RunTest()
+
+//3c. Решето Эратосфена со сложностью O(n log log n).
+//Результаты замера в с:
+//[0] - 0.002223968505859375s
+//[1] - 3.695487976074219 × 10^-05s
+//[2] - 5.900859832763672 × 10^-05s
+//[3] - 8.90493392944336 × 10^-05s
+//[4] - 0.0001380443572998047s
+//[5] - 0.0002200603485107422s
+//[6] - 0.005962967872619629s
+//[7] - 0.08043408393859863s
+//[8] - 1.2315950393676758s
+//[9] - 20.938192009925842s
+//[10] - x
+//[11] - x
+//[12] - x
+//[13] - x
+//[14] - x
+let prime_3c = CounterOfPrimes(.eratosphen)
+let tester_3c = Tester(path: "/Users/c-villain/Downloads/5.Primes", task: prime_3c)
+tester_3c.RunTest()

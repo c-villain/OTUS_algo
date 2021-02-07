@@ -18,6 +18,7 @@ class CounterOfPrimes: Task {
     enum algoType {
         case devisorEnumerated
         case improvedDevisorEnumerated
+        case eratosphen
     }
     
     
@@ -30,6 +31,8 @@ class CounterOfPrimes: Task {
             Fn = devisorEnumerated(for: n)
         case .improvedDevisorEnumerated:
             Fn = improvedDevisorEnumerated(for: n)
+        case .eratosphen:
+            Fn = eratosphen(for: n)
         }
         return String("\(Fn)")
     }
@@ -74,5 +77,28 @@ class CounterOfPrimes: Task {
             }
         }
         return count
+    }
+    
+    private func eratosphen(for p: BigInt ) -> BigInt {
+        
+        guard p > 1 else { return 0 }
+        guard p > 2 else { return 1 }
+        
+        var data: [BigInt] = (2...p).map { $0 } // заполняем массив
+        var dataCursor: BigInt = 2 // первое простое число
+        
+        while (dataCursor.powerOf2() <= p) {
+            data.removeAll(where: {$0 >= dataCursor.powerOf2() && $0.isMultiple(of: dataCursor)})
+            //берем следующий элемент массива в качестве курсора и начинаем вычеркивать от него:
+            dataCursor = data.first(where: {$0 > dataCursor})!
+        }
+        
+        return BigInt(data.count) //невычеркнутые элементы массива и есть простые числа
+    }
+}
+
+extension BigInt {
+    func powerOf2() -> BigInt {
+        return self * self
     }
 }
