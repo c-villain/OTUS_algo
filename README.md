@@ -34,6 +34,13 @@ Homeworks for curses Algorithms and structures Otus 2021 January
 По формуле золотого сечения|0.3|0.5|0.2|0.043|0.045|0.031|0.032|0.042|0.4|error in [BigInt](https://github.com/attaswift/BigInt)|x|x|x
 Через умножение матриц     |0.3|0.5|0.053|0.082|0.047|0.083|0.09|0.1|1|30|3289|x|x
 
+Алгоритмы поиска кол-ва простых чисел до N|10|1|2|3|4|5|100|1000|10000|100000
+---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:
+Перебор делителей                            |2|0|0|0|0|0|128|12651|x|x
+Улучшенный алгоритм перебора делителей       |2|0|0|0|0|0|11|175|3327|70326
+Решето Эратосфена                            |2|0|0|0|0|0|6|80|1231|20938
+
+
 - HW3: [Шахматные биты / Bitboard](https://github.com/c-villain/OTUS_algo/tree/main/HW3) 
 > тесты в [main.swift](https://github.com/c-villain/OTUS_algo/blob/main/HW3/Otus_algo/main.swift)
 <p align="left">
