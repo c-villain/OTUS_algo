@@ -38,7 +38,7 @@ Based on [bitboard calculator](https://gekomad.github.io/Cinnamon/BitboardCalcul
     <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
 </p>
 
-- HW5: [Простые и пирамидальные сортировки / Simple and heap sorts](https://github.com/c-villain/OTUS_algo/tree/main/HW4) 
+- HW5: [Простые и пирамидальные сортировки / Simple and heap sorts](https://github.com/c-villain/OTUS_algo/tree/main/HW5) 
 
 ### Затраты времени на сортировку массивов из n-элементов, сек
 
