@@ -32,9 +32,9 @@ digits       |0|0|0|0.016|1.5|148|x|x
 sorted       |0|0|0|0.001|0.05|4.31|443|x
 revers       |0|0|0|0.034|3.34|341|x|x
 
-## [ShellSort](https://en.wikipedia.org/wiki/Shellsort) / [Сортировка Шелла](https://ru.wikipedia.org/wiki/Сортировка_Шелла)
+# [ShellSort](https://en.wikipedia.org/wiki/Shellsort) / [Сортировка Шелла](https://ru.wikipedia.org/wiki/Сортировка_Шелла)
 
-Протестируем на трех шагах - предложенных последовательностях
+**Протестируем на трех шагах - предложенных последовательностях**
 
 ### ShellSort с шагом gap = N/ (2^k)
 
