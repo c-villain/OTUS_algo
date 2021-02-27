@@ -1,6 +1,6 @@
 # Простые сортировки
 
-[Визуализация сортировок](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
+[Визуализация работы алгоритмов](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
 
 Составим таблицы затрат времени на сортировку массива из n-элементов, сек.
 
@@ -33,6 +33,8 @@ sorted       |0|0|0|0.001|0.05|4.31|443|x
 revers       |0|0|0|0.034|3.34|341|x|x
 
 # [ShellSort](https://en.wikipedia.org/wiki/Shellsort) / [Сортировка Шелла](https://ru.wikipedia.org/wiki/Сортировка_Шелла)
+
+[Визуализация работы алгоритма](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
 
 **Протестируем на трех шагах - предложенных последовательностях**
 
@@ -77,6 +79,8 @@ revers       |0|0|0|0.006|0.067|0.88|10.2|113
 Как видим, сортировка Шелла с шагом, предложенным Кнутом (основанный на методе Пратта), на практике является одной из самых эффективых.
 
 # [HeapSort](https://en.wikipedia.org/wiki/Heapsort) / Пирамидальная сортировка
+
+[Визуализация работы алгоритма](https://www.cs.usfca.edu/~galles/visualization/HeapSort.html)
 
 HeapSort     |1|10|100|1000 |10.000|100.000|1.000.000|10.000.000
 ---|---:|---:|---:|---:|---:|---:|---:|---:
