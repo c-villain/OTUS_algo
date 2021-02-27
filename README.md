@@ -6,7 +6,7 @@ Homeworks for curses Algorithms and structures Otus 2021 January
 ## Текущие выполненные задания
 
 - HW1: [Циклы и рекурсия / Loops and recursion](https://github.com/c-villain/OTUS_algo/tree/main/HW1) 
-> тесты в [Program.cs](https://github.com/c-villain/OTUS_algo/blob/main/HW1/OTUS_algo/HW1/Program.cs)
+
 <p align="left">
     <img src="https://img.shields.io/badge/language-C%23-blue" /> 
     <img src="https://img.shields.io/badge/IDE-Visual%20Studio-blue" /> 
