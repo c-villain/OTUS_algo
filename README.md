@@ -13,7 +13,7 @@ Homeworks for curses Algorithms and structures Otus 2021 January
 </p>
 
 - HW2: [Степень, Числа Фибоначчи, Простые числа / Power, Fibonacci numbers, Prime numbers](https://github.com/c-villain/OTUS_algo/tree/main/HW2) 
-> тесты в [main.swift](https://github.com/c-villain/OTUS_algo/blob/main/HW2/Otus_algo/main.swift)
+
 <p align="left">
     <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
     <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
