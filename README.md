@@ -30,12 +30,14 @@ Based on [bitboard calculator](https://gekomad.github.io/Cinnamon/BitboardCalcul
 </p>
 
 - HW4: [Базовые структуры данных / Basic data structures](https://github.com/c-villain/OTUS_algo/tree/main/HW4) 
-> тесты в [main.swift](https://github.com/c-villain/OTUS_algo/blob/main/HW4/Otus_algo/main.swift)
 
-> реализация [PriorityQueue](https://github.com/c-villain/OTUS_algo/blob/main/HW4/Otus_algo/HW4/PriorityQueue/PriorityQueue.swift), тест использования также в [main.swift](https://github.com/c-villain/OTUS_algo/blob/main/HW4/Otus_algo/main.swift)
 <p align="left">
     <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
     <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
 </p>
 
 - HW5: [Простые и пирамидальные сортировки / Simple and heap sorts](https://github.com/c-villain/OTUS_algo/tree/main/HW5) 
+<p align="left">
+    <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
+    <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
+</p>
