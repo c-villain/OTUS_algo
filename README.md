@@ -46,7 +46,7 @@ Homeworks for curses Algorithms and structures Otus 2021 January
 </p>
 
  MergeSorting               |1000 |100.000|1.000.000|10.000.000|100.000.000
-                      --:   |   ---:|     ---:|      ---:|       ---:
+                      --:   | ---:|---:   | ---:    |  ---:     |  ---:
  Standart implementation    |0.01 | 1.44  |17.21    |204       | x 
  Merge with Shell           |0.01 | 1.45  |16.45    |195       | x
  Merge with Heap            |0.007| 1.22  |15.16    |180       | x
