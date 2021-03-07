@@ -32,6 +32,10 @@
 
 Линейные алгоритмы, то есть алгоритмы работащие за линейное время, не основаны на сравнениях.
 
+[Визуализация работы алгоритма bucket sort.](https://www.cs.usfca.edu/~galles/visualization/BucketSort.html)
+
+[Визуализация работы алгоритма counting sort.](https://www.cs.usfca.edu/~galles/visualization/CountingSort.html)
+
 Сложность: при удачных входных данных или данных, о которых мы знаем допольнительную информацию (как в примере на практике: массив состоит из двухбайтных чисел с максимальным элементом - 65535) _O(n)_
 
 На практике рассмотрены [блочный алгоритм](https://ru.wikipedia.org/wiki/Блочная_сортировка) ([bucket sort](https://en.wikipedia.org/wiki/Bucket_sort)), а также его другая версия, доработанная [сортировкой подсчета](https://ru.wikipedia.org/wiki/Сортировка_подсчётом) ([сounting sort](https://en.wikipedia.org/wiki/Counting_sort) ). 
