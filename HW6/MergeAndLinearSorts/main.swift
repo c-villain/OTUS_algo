@@ -53,7 +53,7 @@ let bucketWithHeapSorting = Tester(path: "/Users/c-villain/Downloads/linear-sort
 bucketWithHeapSorting.RunTest()
 print("______________")
 
-print("upgraded bucket sorting")
-let upgratedBucketSorting = Tester(path: "/Users/c-villain/Downloads/linear-sorts", sorted: uint16_upgradedBucketSort )
-upgratedBucketSorting.RunTest()
+print("bucket with count sorting")
+let bucketWithCountSorting = Tester(path: "/Users/c-villain/Downloads/linear-sorts", sorted: uint16_bucketWithCountSort )
+bucketWithCountSorting.RunTest()
 print("______________")

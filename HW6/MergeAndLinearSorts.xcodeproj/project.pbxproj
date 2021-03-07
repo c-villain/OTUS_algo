@@ -12,6 +12,8 @@
 		5A34ADB825F3C8E600A21E5B /* HeapSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34ADB725F3C8E600A21E5B /* HeapSort.swift */; };
 		5A34ADBC25F3C90800A21E5B /* ShellSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34ADBB25F3C90800A21E5B /* ShellSort.swift */; };
 		5A34ADBF25F41E4800A21E5B /* BucketSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34ADBE25F41E4800A21E5B /* BucketSort.swift */; };
+		5A620C9C25F4F13F00FEA512 /* BucketWithHeapSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A620C9B25F4F13F00FEA512 /* BucketWithHeapSorting.swift */; };
+		5A620C9F25F4F17300FEA512 /* BucketWithCountSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A620C9E25F4F17300FEA512 /* BucketWithCountSorting.swift */; };
 		5AC48D8725E9A8D3001E1D32 /* MergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC48D8525E9A8D3001E1D32 /* MergeSort.swift */; };
 		5AC48D8B25E9A8F0001E1D32 /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC48D8A25E9A8F0001E1D32 /* Tester.swift */; };
 		5AFAF98125CF0E3C00C8B5A2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFAF98025CF0E3C00C8B5A2 /* main.swift */; };
@@ -35,6 +37,8 @@
 		5A34ADB725F3C8E600A21E5B /* HeapSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeapSort.swift; sourceTree = "<group>"; };
 		5A34ADBB25F3C90800A21E5B /* ShellSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellSort.swift; sourceTree = "<group>"; };
 		5A34ADBE25F41E4800A21E5B /* BucketSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketSort.swift; sourceTree = "<group>"; };
+		5A620C9B25F4F13F00FEA512 /* BucketWithHeapSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketWithHeapSorting.swift; sourceTree = "<group>"; };
+		5A620C9E25F4F17300FEA512 /* BucketWithCountSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketWithCountSorting.swift; sourceTree = "<group>"; };
 		5AC48D8525E9A8D3001E1D32 /* MergeSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
 		5AC48D8A25E9A8F0001E1D32 /* Tester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
 		5AFAF97D25CF0E3C00C8B5A2 /* MergeAndLinearSorts */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MergeAndLinearSorts; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,13 +65,31 @@
 			path = SupportingSorting;
 			sourceTree = "<group>";
 		};
-		5A7B0B0E25D7F6EE00B139AD /* HW6 */ = {
+		5A620C9625F4F0C000FEA512 /* MergeSorting */ = {
 			isa = PBXGroup;
 			children = (
 				5AC48D8525E9A8D3001E1D32 /* MergeSort.swift */,
-				5A34ADAF25F3C52100A21E5B /* SupportingSorting */,
 				5A34ADAB25F3C2E900A21E5B /* UpgradedMergeSort.swift */,
+			);
+			path = MergeSorting;
+			sourceTree = "<group>";
+		};
+		5A620C9725F4F0D000FEA512 /* BucketSorting */ = {
+			isa = PBXGroup;
+			children = (
 				5A34ADBE25F41E4800A21E5B /* BucketSort.swift */,
+				5A620C9B25F4F13F00FEA512 /* BucketWithHeapSorting.swift */,
+				5A620C9E25F4F17300FEA512 /* BucketWithCountSorting.swift */,
+			);
+			path = BucketSorting;
+			sourceTree = "<group>";
+		};
+		5A7B0B0E25D7F6EE00B139AD /* HW6 */ = {
+			isa = PBXGroup;
+			children = (
+				5A620C9725F4F0D000FEA512 /* BucketSorting */,
+				5A620C9625F4F0C000FEA512 /* MergeSorting */,
+				5A34ADAF25F3C52100A21E5B /* SupportingSorting */,
 			);
 			path = HW6;
 			sourceTree = "<group>";
@@ -165,8 +187,10 @@
 				5A34ADAC25F3C2E900A21E5B /* UpgradedMergeSort.swift in Sources */,
 				5A34AD9F25F2929000A21E5B /* FileGenerator.swift in Sources */,
 				5A34ADB825F3C8E600A21E5B /* HeapSort.swift in Sources */,
+				5A620C9C25F4F13F00FEA512 /* BucketWithHeapSorting.swift in Sources */,
 				5A34ADBC25F3C90800A21E5B /* ShellSort.swift in Sources */,
 				5AFAF98125CF0E3C00C8B5A2 /* main.swift in Sources */,
+				5A620C9F25F4F17300FEA512 /* BucketWithCountSorting.swift in Sources */,
 				5AC48D8725E9A8D3001E1D32 /* MergeSort.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
