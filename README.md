@@ -39,7 +39,7 @@ Homeworks for curses Algorithms and structures Otus 2021 January
     <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
 </p>
 
-- HW6: [Линейная сортировка / Linear sort](https://github.com/c-villain/OTUS_algo/tree/main/HW6) 
+- HW6: [Внешная и Линейная сортировка / Merge and linear sort](https://github.com/c-villain/OTUS_algo/tree/main/HW6) 
 <p align="left">
     <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
     <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
@@ -50,4 +50,10 @@ Homeworks for curses Algorithms and structures Otus 2021 January
  Standart implementation    |0.01 | 1.44  |17.21    |204       | x 
  Merge with Shell           |0.01 | 1.45  |16.45    |195       | x
  Merge with Heap            |0.007| 1.22  |15.16    |180       | x
+ 
+ BucketSorting               |1000 |100.000|1.000.000|10.000.000|100.000.000
+  ---|---:|---:|---:|---:|---:
+ Standart implementation     |0.003 | 0.28  |2.73    |26.7      | 276 
+ Bucket with Heap            |0.003| 0.28  |2.9      |29        | 278
+ Upgrated bucket             |0.00 | 0.11  |0.77     |7.3       | 72
 
