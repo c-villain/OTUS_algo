@@ -1,3 +1,10 @@
+# Домашнее задание
+## Шахматные биты
+### Цель 
+Решить 5 задач по условию.
+
+Проверить решения по тестам.
+
 # Битовая арифметика
 
 Based on [bitboard calculator](https://gekomad.github.io/Cinnamon/BitboardCalculator/)
