@@ -9,7 +9,7 @@ import Foundation
 
 
 
-///HW6
+///HW7
 
 let numOfElements = 3_000
 
