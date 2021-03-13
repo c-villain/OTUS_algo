@@ -11,7 +11,7 @@ import Foundation
 
 ///HW6
 
-let numOfElements = 2_000
+let numOfElements = 3_000
 
 print("BST:")
 print("creating random BST:")
@@ -23,38 +23,40 @@ print("___________________")
 print("test removing in random BST:")
 testForRemovingElements(tree: randromTree, maxElementInTree: 65535, numOfSearchingElements: numOfElements/10)
 
-//print("___________________")
-//print("creating increasing BST:")
-//let increasingTree = testForCreatingBST(numOfElements: numOfElements, type: .increasingBST)
-//print("___________________")
-//print("test searching in increasing BST:")
-//testForSearchingElements(tree: increasingTree, maxElementInTree: numOfElements-1, numOfSearchingElements: numOfElements/10)
-//print("___________________")
-//print("test removing in increasing BST:")
-//testForRemovingElements(tree: increasingTree, maxElementInTree: numOfElements-1, numOfSearchingElements: numOfElements/10)
-//print("___________________")
+print("___________________")
+print("creating increasing BST:")
+let increasingTree = testForCreatingBST(numOfElements: numOfElements, type: .increasingBST)
+print("___________________")
+print("test searching in increasing BST:")
+testForSearchingElements(tree: increasingTree, maxElementInTree: numOfElements-1, numOfSearchingElements: numOfElements/10)
+print("___________________")
+print("test removing in increasing BST:")
+testForRemovingElements(tree: increasingTree, maxElementInTree: numOfElements-1, numOfSearchingElements: numOfElements/10)
+print("___________________")
 
-//print("BALANCED BST:")
-//print("creating random balanced BST:")
-//let randromBalancedTree = testForCreatingBST(numOfElements: numOfElements, type: .randomBalancedBST)
-//print("___________________")
-//print("test searching in random balanced BST:")
-//testForSearchingElements(tree: randromBalancedTree, maxElementInTree: 65535, numOfSearchingElements: numOfElements/10)
-//print("___________________")
-//print("test removing in random balanced BST:")
-//testForRemovingElements(tree: randromBalancedTree, maxElementInTree: 65535, numOfSearchingElements: numOfElements/10)
+print("BALANCED BST:")
+print("creating random balanced BST:")
+let randromBalancedTree = testForCreatingBST(numOfElements: numOfElements, type: .randomBalancedBST)
+print("___________________")
+print("test searching in random balanced BST:")
+testForSearchingElements(tree: randromBalancedTree, maxElementInTree: 65535, numOfSearchingElements: numOfElements/10)
+print("___________________")
+print("test removing in random balanced BST:")
+testForRemovingElements(tree: randromBalancedTree, maxElementInTree: 65535, numOfSearchingElements: numOfElements/10)
 
-//print("___________________")
-//print("creating increasing balanced BST:")
-//let increasingBalancedTree = testForCreatingBST(numOfElements: numOfElements, type: .increasingBalancedBST)
-//print("___________________")
-//print("test searching in increasing balanced BST:")
-//testForSearchingElements(tree: increasingBalancedTree, maxElementInTree: numOfElements-1, numOfSearchingElements: numOfElements/10)
-//print("___________________")
-//print("test removing in increasing balanced BST:")
-//testForRemovingElements(tree: increasingBalancedTree, maxElementInTree: numOfElements-1, numOfSearchingElements: numOfElements/10)
-//print("___________________")
+print("___________________")
+print("creating increasing balanced BST:")
+let increasingBalancedTree = testForCreatingBST(numOfElements: numOfElements, type: .increasingBalancedBST)
+print("___________________")
+print("test searching in increasing balanced BST:")
+testForSearchingElements(tree: increasingBalancedTree, maxElementInTree: numOfElements-1, numOfSearchingElements: numOfElements/10)
+print("___________________")
+print("test removing in increasing balanced BST:")
+testForRemovingElements(tree: increasingBalancedTree, maxElementInTree: numOfElements-1, numOfSearchingElements: numOfElements/10)
+print("___________________")
 
+
+    /**
 
 //let tree = BST<Int>(7)
 //tree.insert(2)
@@ -197,7 +199,7 @@ testForRemovingElements(tree: randromTree, maxElementInTree: 65535, numOfSearchi
 //tree.insertInBalancedTree(11)
 //print(tree)
 
-
+*/
 
 
 
