@@ -44,3 +44,9 @@ Homeworks for curses Algorithms and structures Otus 2021 January
     <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
     <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
 </p>
+
+- HW7: [Двоичное дерево поиска, АВЛ / BST and AVL trees](https://github.com/c-villain/OTUS_algo/tree/main/HW7) 
+<p align="left">
+    <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
+    <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
+</p>
