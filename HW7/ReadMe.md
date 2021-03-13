@@ -70,6 +70,8 @@ void rebalance(Tree t) - перебалансировка дерева
 
 ### Таблица производительности в деревьях BST и AVL (в сек)
 
+> тесты в [main.swift](https://github.com/c-villain/OTUS_algo/blob/main/HW7/BinarySearchTrees/main.swift)
+
 Операции:
 1. Создать по два дерева (для BST и AVL). Добавить N чисел в случайном (первое) и возрастающем (второе) порядке.
 2. Искать N/10 случайных чисел в каждом дереве.
