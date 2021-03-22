@@ -58,7 +58,7 @@ void rebalance(Tree t) - перебалансировка дерева
  Удаление                         |O(log n)  | O(n)
 
 
-[AVL tree](https://en.wikipedia.org/wiki/AVL_tree) / [Сбалансированное двочиное дерево поиска](https://ru.wikipedia.org/wiki/АВЛ-дерево) - дерево, у которого для каждой его вершины высота её двух поддеревьев различается не более чем на 1.
+[AVL tree](https://en.wikipedia.org/wiki/AVL_tree) / [Сбалансированное двоичное дерево поиска](https://ru.wikipedia.org/wiki/АВЛ-дерево) - дерево, у которого для каждой его вершины высота её двух поддеревьев различается не более чем на 1.
 
 [Визуализация работы сбалансированного двоичного дерева поиска](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
 
