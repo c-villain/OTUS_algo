@@ -49,7 +49,7 @@ import Foundation
  print(table.size)
  */
 
-let numOfElements = 100000
+let numOfElements = 10_000_000
 print ("\(numOfElements)")
 print("Creating hash table:")
 let hashTable = testForCreatingHT(numOfElements: numOfElements)

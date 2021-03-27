@@ -97,9 +97,8 @@ class HashTable<Key, Value>: CustomStringConvertible where Key: Hashable {
         
         // создаем новую корзину для данного ключа
         e = .init(key: key, value: value)
-        // помещаем элемент
+        // помещаем элемент в начало списка, то есть предыдущие элементы корзины в next
         e?.next = buckets[idx]
-//        e?.element = (key, value)
         // добавляем корзину в таблицу
         buckets[idx] = e
     }
