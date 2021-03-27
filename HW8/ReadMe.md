@@ -36,30 +36,21 @@
 - V del(K key) - удаление элемента 
 - void rehash() - рехеширование по достижению 75% заполнения 
 - int hash(K key, int i) - хэширование на i-ом пробинге
-- 
+
 Реализовать вариант линейного, квадратичного и двойного пробинга
 
-## Выводы
+# Выводы
 
-### [Hash tables](https://en.wikipedia.org/wiki/Hash_table) / [Хеш-таблица](https://ru.wikipedia.org/wiki/Хеш-таблица)
+## [Hash tables](https://en.wikipedia.org/wiki/Hash_table) / [Хеш-таблица](https://ru.wikipedia.org/wiki/Хеш-таблица)
 
-> тесты в [main.swift](https://github.com/c-villain/OTUS_algo/blob/main/HW7/BinarySearchTrees/main.swift)
+> тесты в [main.swift](https://github.com/c-villain/OTUS_algo/blob/main/HW8/HashTables/main.swift)
 
-> let N = 2_000 элементов
+### Таблица производительности для релизации методом цепочек 
 
-  
- Operation with trees                     |BST with randoms|AVL with randoms|BST with increasing|AVL with increasing
-  ---|---:|---:|---:|---:
- Creation (Insertion)                     |0.008           | 19             |0.2                |19      
- Searching                                |0.006           | 0.005          |0.2                |0.004     
- Removing                                 |0.006           | 0.004          |30                 |0.003       
- 
- > let N = 3_000 элементов
- 
-  Operation with trees                    |BST with randoms |AVL with randoms|BST with increasing|AVL with increasing
-  ---|---:|---:|---:|---:
- Creation (Insertion)                     |0.01             | 47             |0.42               |47      
- Searching                                |0.008            | 0.007          |0.42               |0.007     
- Removing                                 |0.007            | 0.007          |194                |0.006       
- 
- Объяснение результата: на практике подтверилось, что в худшем случае (когда добавляются только возрастающие элементы) сложность работы с BST растет линейно, в том время, как в случае с AVL, она растет логарифмически. Кроме того, видно, что сложность работы в сбалансированном дереве поиска не меняется и остается _O(log n)_ как в случае, когда работа происходит с произвольными числами, так и в случае с возрастающими. Наоборот, в BST - во втором случае, с возрастающими числами - сложность становится уже линейной, а не логарифмической.
+N - количество пар записей 
+
+ Operation in Hash table                  |100_000| 1_000_000 |10_000_000 
+  ---|---:|---:|---:
+ Creation (Insertion)                     |0.36   | 4.8       |44          
+ Searching                                |0.19   | 1.9       |18.5         
+ Removing                                 |0.02   | 0.2       |2.14        
