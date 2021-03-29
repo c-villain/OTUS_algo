@@ -57,21 +57,22 @@ table.put(key: "dog", value: 15) //
 table.put(key: "cat", value: 20) //
 table.put(key: "elephant", value: 30) //
 table.put(key: "tiger", value: 50) //
-table.put(key: "mouse", value: 70) //+
-table.put(key: "white tiger", value: 1000) //+
-table.put(key: "small mouse", value: 12) //+
-table.put(key: "big cat", value: 250) //+
-table.put(key: "dog", value: 200) //+
-table.put(key: "smokie", value: 300) //+
-table.put(key: "bluebird", value: 150) //+
-//table.put(key: "bird", value: 100)
+table.put(key: "mouse", value: 70) //
+print(table)
+table.put(key: "white tiger", value: 1000) //
+table.put(key: "small mouse", value: 12) //
+table.put(key: "big cat", value: 250) //
+table.put(key: "dog", value: 200) //
+table.put(key: "smokie", value: 300) //
+table.put(key: "bluebird", value: 150) //
+table.put(key: "bird", value: 100)
 print(table)
 print(table.size)
-print("dog: ", table.get(key: "dog"))
-table.del(key: "dog")
-print("dog: ", table.get(key: "dog"))
-print("cat: ", table.get(key: "cat"))
-print("bluebird: ", table.get(key: "bluebird"))
+print(table.capacity())
+//print("dog: ", table.get(key: "dog"))
+//table.del(key: "dog")
+//print("cat: ", table.get(key: "cat"))
+//print("bluebird: ", table.get(key: "bluebird"))
 
 /*
 let numOfElements = 10_000_000

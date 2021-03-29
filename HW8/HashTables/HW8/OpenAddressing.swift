@@ -64,44 +64,6 @@ class OpenAddressingHashTable<Key, Value>: CustomStringConvertible where Key: Ha
     }
     
     func put(key: Key, value: Value) {
-        
-        /*
-        // сначала считаем hash:
-        var idx = hash(key)
-        
-        // переменная для хранения курсора - указателя на текущую непустую ячейку в таблице
-        // курсор нужен для того, чтобы понимать на какое место ставить очередное ячейку
-        // иначе говоря номер попытки
-        var cursor = idx
-        // получаем начальную ячейку по индексу:
-        var e = buckets[idx]
-
-        // сначала ищем, есть ли уже указанный ключ
-        // если да, то перезапишем новым значением
-        
-        while (e != nil)
-        {
-            // если нашли нужный ключ, то перезапишем новым значением
-            if (e?.key == key) {
-                e?.value = value
-            }
-            //иначе ищем дальше, то есть "идем по стрелке"
-            
-            // если индекс из середины, то увеличиваем на 1, иначе идём в начало таблицы
-            if (cursor + 1 <= capacity() - 1) {
-                cursor += 1
-            } else {
-                cursor = 0
-            }
-            
-            // если мы сделали полный оборот, то ничего не нашли
-            if (cursor == idx) { break }
-            
-            // иначе смотрим на очередную ячейку
-            e = buckets[cursor]
-        }
-        */
-        
         // сначала ищем, есть ли уже указанный ключ
         // если да, то перезапишем новым значением
         var e = self.getNode(key: key)
@@ -113,14 +75,11 @@ class OpenAddressingHashTable<Key, Value>: CustomStringConvertible where Key: Ha
         // на этом шаге мы знаем, что ячейки с таким ключом нет,
         // поэтому добавим ее
         
-        //увеличиваем размер таблицы:
-        size += 1
-        
-        // и смотрим не вышли ли мы за пределы рубежа,
+        // сначала смотрим не выходим ли мы за пределы рубежа,
         // иначе делаем рехэширование:
-        if (size > threshold) {
+        if (size + 1 > threshold) {
             rehash()
-            e.cursor = hash(key)
+            e = self.getNode(key: key)
         }
         
         // создаем новую ячейку для данного ключа
@@ -137,6 +96,9 @@ class OpenAddressingHashTable<Key, Value>: CustomStringConvertible where Key: Ha
         /// но я опишу его здесь
         guard let cursur = e.cursor else { return }
         buckets[cursur] = cell
+        
+        //увеличиваем размер таблицы после добавления
+        size += 1
     }
     
     // получение значения по ключу:
@@ -176,97 +138,43 @@ class OpenAddressingHashTable<Key, Value>: CustomStringConvertible where Key: Ha
             }
             
             //если мы сделали полный оборот, то ничего не нашли
-            if (cursor == idx) { return (nil, nil) }
+            if (cursor == idx) {
+                return (nil, nil)
+            }
             
             // иначе смотрим на очередную ячейку
             e = buckets[cursor]
         }
-        return (nil, nil)
+        return (nil, cursor)
     }
     
     @discardableResult
     func del(key: Key) -> Value? {
-        /*
-        // сначала считаем hash:
-        let idx = hash(key)
-        
-        // переменная для хранения курсора - указателя на текущую ячейку в таблице
-        // нужна чтобы не сделать полный оборот в таблице, в теории такой ситуации быть не может
-        // из-за рехэширования, но мы учтем этот случай, ибо так работают профессионалы =)
-        var cursor = idx
-        // получаем начальную ячейку по индексу:
-        var e = buckets[idx]
-
-        while (e != nil)
-        {
-            // если нашли нужный ключ, то возращаем значение
-            if (e?.key == key) {
-                size -= 1
-                //помечаем удаленным, но естественно само значение не удаляем
-                // чтобы корректно работала "стрелка"
-                e?.isDeleted = true
-                return e?.value
-            }
-            //иначе идем по стрелке
-            
-            // если индекс из середины, то увеличиваем на 1, иначе идём в начало таблицы
-            if (cursor + 1 <= capacity() - 1) {
-                cursor += 1
-            } else {
-                cursor = 0
-            }
-            
-            //если мы сделали полный оборот, то ничего не нашли
-            if (cursor == idx) { return nil }
-            
-            // иначе смотрим на очередную ячейку
-            e = buckets[cursor]
-        }
-        return nil
- */
         guard let node = self.getNode(key: key).node else { return nil } //не нашли такой ноды
         node.isDeleted = true
         size -= 1
         return node.value
     }
     
-    //TODO!
     private func rehash() {
-//        // для начала сохраним прошлые корзины
-//        let oldBuckets = buckets
-//        
-//        //вычисляем размер новой таблицы
-//        let newCapacity = (buckets.count * 2) + 1
-//        // не забываем про новый рубеж, когда нужно будет выполнить rehash():
-//        threshold = Int(Float(newCapacity) * loadFactor)
-//        
-//        // создаем новые корзины
-//        buckets = Array<Node?>(repeatElement(nil, count: newCapacity))
-//        
-//        for i in 0...oldBuckets.count - 1 {
-//            var e = oldBuckets[i]
-//            while e != nil {
-//                guard let key = e?.element?.key else { continue }
-//                let idx = hash(key)
-//                var dest = buckets[idx]
-//                if (dest != nil) {
-//                    var next = dest?.next
-//                    while next != nil {
-//                        dest = next
-//                        next = dest?.next
-//                    }
-//                    dest?.next = e
-//                } else {
-//                    buckets[idx] = e
-//                }
-//                
-//                let next = e?.next
-//                e?.next = nil
-//                e = next
-//            }
-//        }
+        // для начала сохраним прошлые корзины, непустые и не помеченные как удаленные
+        let oldBuckets = buckets.filter { $0?.isDeleted == false }.compactMap { $0 }
+
+        //вычисляем размер новой таблицы
+        let newCapacity = (buckets.count * 2) + 1
+        // не забываем про новый рубеж, когда нужно будет выполнить rehash():
+        threshold = Int(Float(newCapacity) * loadFactor)
+        
+        // создаем новые корзины
+        buckets = Array<Node?>(repeatElement(nil, count: newCapacity))
+        
+        // обнуляем размер
+        size = 0
+        
+        oldBuckets.forEach {
+            put(key: $0.key, value: $0.value)
+        }
     }
-    
     
     var description: String {
         var str = ""
