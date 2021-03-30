@@ -9,8 +9,16 @@ import Foundation
 
 // Реализация Хэш-таблицы методом открытой адресации
 // Open addressing
-
+// Реализовать вариант линейного, квадратичного и двойного пробинга
 class OpenAddressingHashTable<Key, Value>: CustomStringConvertible where Key: Hashable {
+    
+    enum AddressingType : Equatable {
+        case linear(Int) //линейный
+        case quadratic(Int, Int) //квадратичный, c1 и c2 значения
+        case double //двойной
+    }
+    
+    private let type: AddressingType
     
     // рубеж
     private var threshold: Int
@@ -28,7 +36,6 @@ class OpenAddressingHashTable<Key, Value>: CustomStringConvertible where Key: Ha
     
     // внутренний класс для хранимой ноды
     private class Node : CustomStringConvertible {
-        
         var key: Key
         var value: Value
         var isDeleted: Bool
@@ -47,18 +54,34 @@ class OpenAddressingHashTable<Key, Value>: CustomStringConvertible where Key: Ha
     private var buckets: Array<Node?>
     
     // capacity - изначальная мощность
-    public init(capacity: Int = 11, factor: Float = 0.75){
+    public init(type: AddressingType = .linear(0), capacity: Int = 11, factor: Float = 0.75){
         loadFactor = factor
         threshold = Int(Float(capacity) * factor)
         buckets = Array<Node?>(repeatElement(nil, count: capacity))
+        self.type = type
     }
     
     public func isEmpty() -> Bool {
         size == 0
     }
     
-    func hash(_ key: Key) -> Int {
-        //TODO: изменить подсчет хэша через формулу!
+    /// i - номер попытки
+    func hash(_ key: Key, i: Int) -> Int {
+        var hash: Int
+        switch type {
+        case .linear(let a):
+            hash = key.hashValue + i * a
+        case .quadratic(let a, let b):
+            hash = key.hashValue + a * i + b * Int(pow(Double(i), 2))
+        case .double:
+            hash = key.hashValue + i * key.hashValue
+        }
+        hash %= buckets.count
+        return hash < 0 ? -hash : hash
+    }
+    
+    /// вырожденный случай линейной адресации с a = 0
+    func hashInLinear(_ key: Key) -> Int {
         let hash = key.hashValue % buckets.count
         return hash < 0 ? -hash : hash
     }
@@ -106,29 +129,40 @@ class OpenAddressingHashTable<Key, Value>: CustomStringConvertible where Key: Ha
     func get(key: Key) -> Value? {
         self.getNode(key: key).node?.value
     }
-    
+
     @discardableResult
-    // курсор указывает
-    // 1. или на номер ячейки, где ключ найден, чтобы его перезаписать, например
-    // 2. или на первый nil ячейку в таблице
-    private func getNode(key: Key) -> (node: Node?, cursor: Int?) {
+    /// Вырожденный случай поиска ячейки в таблице при линейной адресации с a = 0
+    /// то есть когда мы смотрим на ячейки подряд
+    /// курсор указывает
+    /// 1. или на номер ячейки, где ключ найден, чтобы его перезаписать, например
+    /// 2. или на первый nil ячейку в таблице
+    /// 3. или на первую лениво удаленную ячейку
+    private func getNodeInLinear(key: Key) -> (node: Node?, cursor: Int?) {
         // сначала считаем hash:
-        let idx = hash(key)
+        let idx = hashInLinear(key)
         
         // переменная для хранения курсора - указателя на текущую ячейку в таблице
         // нужна чтобы не сделать полный оборот в таблице, в теории такой ситуации быть не может
         // из-за рехэширования, но мы учтем этот случай, ибо так работают профессионалы =)
         var cursor = idx
+        
+        // переменная для хранения индекса лениво удаленного элемента:
+        var delCursor: Int?
         // получаем начальную ячейку по индексу:
         var e = buckets[idx]
 
         while (e != nil)
         {
-            // если нашли нужный ключ, то возращаем значение
-            if (e?.key == key) {
-                return (e, cursor)
+            if let cell = e, cell.isDeleted {
+                // если при проходе замечаем удаленную ссылку, то сохраняем ее,
+                // чтоб потом сделать оптимизацию
+                delCursor = cursor
             }
-            //иначе идем по стрелке
+            // если нашли нужный ключ, и сам ключ не удален, то возращаем значение
+            if let cell = e, cell.key == key, !cell.isDeleted {
+                return (cell, cursor)
+            }
+            // иначе идем по стрелке
             
             // если индекс из середины, то увеличиваем на 1, иначе идём в начало таблицы
             if (cursor + 1 <= capacity() - 1) {
@@ -139,14 +173,70 @@ class OpenAddressingHashTable<Key, Value>: CustomStringConvertible where Key: Ha
             
             //если мы сделали полный оборот, то ничего не нашли
             if (cursor == idx) {
-                return (nil, nil)
+                if let delCursor = delCursor { return (nil, delCursor) }
+                else { return (nil, nil) }
             }
             
             // иначе смотрим на очередную ячейку
             e = buckets[cursor]
         }
+        // делаем оптимизацию, если нашли по пути удаленную ячейку,то меняем курсор
+        // на тот, где эта ячейка находится
+        if let delCursor = delCursor {
+            cursor = delCursor
+        }
         return (nil, cursor)
     }
+    
+    @discardableResult
+    /// поиск ячейки
+    /// 1. или на номер ячейки, где ключ найден, чтобы его перезаписать, например
+    /// 2. или на первый nil ячейку в таблице
+    /// 3. или на первую лениво удаленную ячейку
+    private func getNode(key: Key) -> (node: Node?, cursor: Int?) {
+        
+        if self.type == .linear(0) {
+            return self.getNodeInLinear(key: key)
+        }
+        
+        // номер попытки
+        var i = 0
+        
+        // сначала считаем hash:
+        var idx = hash(key, i: i)
+        
+        // переменная для хранения индекса лениво удаленного элемента:
+        var delCursor: Int?
+        // получаем начальную ячейку по индексу с шагом 0
+        var e = buckets[idx]
+
+        while (e != nil)
+        {
+            if let cell = e, cell.isDeleted {
+                // если при проходе замечаем удаленную ссылку, то сохраняем ее,
+                // чтоб потом сделать оптимизацию
+                delCursor = idx
+            }
+            // если нашли нужный ключ, и сам ключ не удален, то возращаем значение
+            if let cell = e, cell.key == key, !cell.isDeleted {
+                return (cell, idx)
+            }
+            // иначе идем по стрелке
+            
+            i += 1
+            idx = hash(key, i: i)
+
+            // иначе смотрим на очередную ячейку
+            e = buckets[idx]
+        }
+        // делаем оптимизацию, если нашли по пути удаленную ячейку,то меняем курсор
+        // на тот, где эта ячейка находится
+        if let delCursor = delCursor {
+            idx = delCursor
+        }
+        return (nil, idx)
+    }
+    
     
     @discardableResult
     func del(key: Key) -> Value? {
