@@ -7,7 +7,8 @@
 
 import Foundation
 
-//Класс Хэш таблицы вставки элемента типа Value с ключом Key
+// Реализация Хэш-таблицы методом цепочек элемента типа Value с ключом Key
+// Hash tables with separate chaining
 class HashTable<Key, Value>: CustomStringConvertible where Key: Hashable {
     
     // рубеж, после прохождения которого, нужно делать увеличение мощности хэш-таблицы,
@@ -19,7 +20,7 @@ class HashTable<Key, Value>: CustomStringConvertible where Key: Hashable {
     // load factor for this hash table
     // используется для вычисления рубежа threshold
     // иначе говоря уровень загруженности хэш-таблицы
-    // по-умолч. в конструкторе это 75%
+    // по умолч. в конструкторе это 75%
     private let loadFactor: Float
     
     // переменная для хранения заполненности таблицы - числа корзин
