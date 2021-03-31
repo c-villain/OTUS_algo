@@ -65,6 +65,12 @@ class OpenAddressingHashTable<Key, Value>: CustomStringConvertible where Key: Ha
         size == 0
     }
     
+    
+    private func hash2 (key: Key, prime: Int) -> Int {
+        prime - (key.hashValue % prime)
+    }
+    
+    
     /// i - номер попытки
     func hash(_ key: Key, i: Int) -> Int {
         var hash: Int
@@ -74,8 +80,12 @@ class OpenAddressingHashTable<Key, Value>: CustomStringConvertible where Key: Ha
         case .quadratic(let a, let b):
             hash = key.hashValue + a * i + b * Int(pow(Double(i), 2))
         case .double:
-            hash = key.hashValue + i * key.hashValue
+            //
+            let hash1 = key.hashValue % buckets.count
+            let hash2 = self.hash2(key: key, prime: 7) //   7 - key.hashValue % 7
+            hash = hash1 + i * hash2
         }
+        
         hash %= buckets.count
         return hash < 0 ? -hash : hash
     }
@@ -195,7 +205,12 @@ class OpenAddressingHashTable<Key, Value>: CustomStringConvertible where Key: Ha
     /// 3. или на первую лениво удаленную ячейку
     private func getNode(key: Key) -> (node: Node?, cursor: Int?) {
         
+        /// вырожденные случаи:
         if self.type == .linear(0) {
+            return self.getNodeInLinear(key: key)
+        }
+        
+        if self.type == .quadratic(0, 0) {
             return self.getNodeInLinear(key: key)
         }
         
