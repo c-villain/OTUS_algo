@@ -79,11 +79,11 @@ N - количество пар записей
 Double probing.
 В качестве функции второго хэширования взял следующую:
 
- > private func hash2 (key: Key, prime: Int) -> Int {
- > 
- >       prime - (key.hashValue % prime)
- >       
- >   }
+```swift
+ private func hash2 (key: Key, prime: Int) -> Int {
+     prime - (key.hashValue % prime)       
+ }
+ ```
  
 Operation in Hash table (double probing)          |100_000| 1_000_000 |10_000_000 
   ---|---:|---:|---:
