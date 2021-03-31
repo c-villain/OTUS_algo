@@ -75,8 +75,18 @@ N - количество пар записей
  Searching                                                     |0.2    | 1.79       |22.7         
  Removing                                                      |0.02   | 0.19       |2.27    
  
+ 
+Double probing.
+В качестве функции второго хэширования взял следующую:
+
+ > private func hash2 (key: Key, prime: Int) -> Int {
+ > 
+ >       prime - (key.hashValue % prime)
+ >       
+ >   }
+ 
 Operation in Hash table (double probing)          |100_000| 1_000_000 |10_000_000 
   ---|---:|---:|---:
- Creation (Insertion)                             |0.36   | 4.8       |44          
- Searching                                        |0.19   | 1.9       |18.5         
- Removing                                         |0.02   | 0.2       |2.14    
+ Creation (Insertion)                             |0.43   | 6.4       |59.7          
+ Searching                                        |0.19   | 1.9       |20.2         
+ Removing                                         |0.02   | 0.2       |2.03    
