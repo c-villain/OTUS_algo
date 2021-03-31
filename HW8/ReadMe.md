@@ -45,29 +45,34 @@
 
 > тесты в [main.swift](https://github.com/c-villain/OTUS_algo/blob/main/HW8/HashTables/main.swift)
 
-### Таблица производительности для релизации хэш-таблицы методом цепочек 
+### Таблица производительности для релизации хэш-таблицы с реализацией разрешения коллизий [методом цепочек](https://ru.wikipedia.org/wiki/Хеш-таблица#Метод_цепочек)
 
 N - количество пар записей 
 
- Operation in Hash table                  |100_000| 1_000_000 |10_000_000 
+ Operation in Hash table ([separate chaining](https://en.wikipedia.org/wiki/Hash_table#Separate_chaining))|100_000| 1_000_000 |10_000_000 
   ---|---:|---:|---:
- Creation (Insertion)                     |0.36   | 4.8       |44          
- Searching                                |0.19   | 1.9       |18.5         
- Removing                                 |0.02   | 0.2       |2.14    
+ Creation (Insertion)                                                                                     |0.36   | 4.8       |44          
+ Searching                                                                                                |0.19   | 1.9       |18.5         
+ Removing                                                                                                 |0.02   | 0.2       |2.14    
+ 
+ ### Таблица производительности для релизации хэш-таблицы с реализацией разрешения коллизий [методом открытой адресации](https://ru.wikipedia.org/wiki/Хеш-таблица#Открытая_адресация)
  
  
- Operation in Hash table (linear probing, a = 0)  |100_000| 1_000_000 |10_000_000 
+ #### Открытая адресация с [линейным пробингом](https://en.wikipedia.org/wiki/Linear_probing)
+  
+ Operation in Hash table ([linear probing](https://en.wikipedia.org/wiki/Linear_probing), a = 0)  |100_000| 1_000_000 |10_000_000 
   ---|---:|---:|---:
  Creation (Insertion)                             |0.43   | 6.8       |63          
  Searching                                        |0.2    | 2.14      |22.7         
  Removing                                         |0.02   | 0.2       |2.3    
  
- Operation in Hash table (linear probing, a = 4)  |100_000| 1_000_000 |10_000_000 
+ Operation in Hash table ([linear probing](https://en.wikipedia.org/wiki/Linear_probing), a = 4)  |100_000| 1_000_000 |10_000_000 
   ---|---:|---:|---:
  Creation (Insertion)                             |0.41   | 6.7        |60.6          
  Searching                                        |0.19   | 1.83       |22         
  Removing                                         |0.02   | 0.22       |2.43    
  
+ #### Открытая адресация с [квадратичным пробингом](https://en.wikipedia.org/wiki/Quadratic_probing)
 
  Operation in Hash table (quadratic probing, c1=0, c2=2 )      |100_000| 1_000_000 |10_000_000 
   ---|---:|---:|---:
@@ -75,8 +80,8 @@ N - количество пар записей
  Searching                                                     |0.2    | 1.79       |22.7         
  Removing                                                      |0.02   | 0.19       |2.27    
  
- 
-Double probing.
+#### Открытая адресация с [двойным хэшированием](https://en.wikipedia.org/wiki/Double_hashing)
+  
 В качестве функции второго хэширования взял следующую:
 
 ```swift
