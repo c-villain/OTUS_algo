@@ -68,3 +68,9 @@ Homeworks for curses Algorithms and structures Otus 2021 January
     <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
     <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
 </p>
+
+- HW11: [Алгоритм Дейкстры / Dijkstra's algorithm](https://github.com/c-villain/OTUS_algo/tree/main/HW11)
+<p align="left">
+    <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
+    <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
+</p>
