@@ -23,7 +23,7 @@ final class AdjacencyMatrix: CustomStringConvertible {
     
     /**
      Матрица смежностей всегда квадратная
-     но не симметричная, так как граф направленный - оргграф
+     но не симметричная, так как граф направленный - орграф
      
      - Parameters vertexCount: количество вершин
      */
@@ -66,8 +66,8 @@ final class AdjacencyMatrix: CustomStringConvertible {
     }
     
     /**
-     для вывода на экран
-     выводить будем построчно
+     Для вывода на экран.
+     Выводить будем построчно
      */
     var description: String {
         var string = ""
@@ -82,8 +82,8 @@ final class AdjacencyMatrix: CustomStringConvertible {
     /**
         Функция получения соседей вершины,
         то есть вершин, инцедентных с данной (соединенных ребром)
-         В матрице смежностей, если ребра нет, то записано число Int.max, аналогичное бесконечности
-            ну и на всякий берем ребра весом > 0
+        В матрице смежностей, если ребра нет, то записано число Int.max, аналогичное бесконечности
+        ну и на всякий случай, берем ребра весом > 0
      */
     func neighbors(for vertex: Int)-> [Int] {
         self[vertex].indices.filter { self[vertex][$0] < Int.max && 0 < self[vertex][$0]}
@@ -107,7 +107,7 @@ final class AdjacencyMatrix: CustomStringConvertible {
             table.append(.init(vertex: vertex))
         }
         // выбираем начальную вершину,
-        // то есть в начальной вершине тсавим вес = 0
+        // то есть в начальной вершине ставим вес = 0
         table[v1].weight = 0
         
         var current: Int? = getLightestVertex(table: table) // текущая вершина
@@ -126,7 +126,7 @@ final class AdjacencyMatrix: CustomStringConvertible {
         }
         
         // теперь строим путь
-        // если у вершины вес не бесконечность, значит пусть найден:
+        // если у вершины вес не бесконечен, значит путь найден:
         if table[v2].weight < Int.max, 0 < table[v2].weight {
             var edges: [Edge] = .init()
             
