@@ -74,3 +74,9 @@ Homeworks for curses Algorithms and structures Otus 2021 January
     <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
     <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
 </p>
+
+- HW12: [Алгоритм Бойера-Мура / Boyer–Moore string-search algorithm](https://github.com/c-villain/OTUS_algo/tree/main/HW12)
+<p align="left">
+    <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
+    <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
+</p>
