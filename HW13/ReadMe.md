@@ -11,7 +11,7 @@
 - Сравнить работу программы с разными типами файлов: текст, фото, аудио, zip-архив. 
 
 ### Описание
-[Код хаффмана](https://en.wikipedia.org/wiki/Huffman_coding) — алгоритм оптимального префиксного кодирования алфавита с минимальной избыточностью. 
+[Код Хаффмана](https://en.wikipedia.org/wiki/Huffman_coding) — алгоритм оптимального префиксного кодирования алфавита с минимальной избыточностью. 
 
 > тесты в [main.swift](https://github.com/c-villain/OTUS_algo/blob/main/HW13/Huffman/main.swift)
 
