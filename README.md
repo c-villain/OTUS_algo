@@ -80,3 +80,9 @@ Homeworks for curses Algorithms and structures Otus 2021 January
     <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
     <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
 </p>
+
+- HW13: [Алгоритм сжатия: код Хаффмана / Huffman code ](https://github.com/c-villain/OTUS_algo/tree/main/HW13)
+<p align="left">
+    <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
+    <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
+</p>
