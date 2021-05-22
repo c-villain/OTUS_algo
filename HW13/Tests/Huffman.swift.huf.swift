@@ -51,13 +51,13 @@ final class Huffman {
     // MARK: - data's compression
     private func CompressBytes(_ data: [byte]) -> [byte] {
         let freqs: [Int] = CalculateFreq(data)
-        var head: [byte] = CreateHeader(data.count, freqs)
+        let head: [byte] = CreateHeader(data.count, freqs)
         let root: Node? = CreateHuffmanTree(freqs)
         if let root = root {
             let codes: [String] = CreateHuffmanCodes(root)
             let bits: [byte] = Compress(data, codes)
-            head.append(contentsOf: bits)
-            return head
+            let final: [byte] = head + bits
+            return final
         }
         return data
     }
@@ -68,10 +68,10 @@ final class Huffman {
         func NormalizeFreqs() {
             let max = freqs.max()
             guard let max = max else { return }
-            if (max <= 255) { return }
+            if (max < 256) { return }
             for j in 0..<256 {
                 if freqs[j] > 0 {
-                    freqs[j] = 1 + (freqs[j] * 255 / (max + 1) )
+                    freqs[j] = 1 + freqs[j] * 255 / (max + 1)
                 }
              }
         }
@@ -189,10 +189,10 @@ final class Huffman {
     }
     
     private func ParseHeader(_ arch: [byte], _ dataLength: inout Int,_ startIndex: inout Int,_ freqs: inout [Int]) {
-        dataLength = Int(arch[0])       |
-            Int(arch[1]) << 8  |
-            Int(arch[2]) << 16 |
-            Int(arch[3]) << 24
+        dataLength = Int(arch[0]       |
+                         arch[1] << 8  |
+                         arch[1] << 16 |
+                         arch[1] << 24)
         for j in 0..<256 {
             freqs[j] = Int(arch[4 + j])
         }
@@ -222,10 +222,10 @@ final class Huffman {
                 }
                 if curr?.bit0 != nil { continue }
                 
-                if size + 1 < dataLength, let symbol = curr?.symbol {
+                if size < dataLength, let symbol = curr?.symbol {
                     data.append(symbol)
-                    size += 1
                 }
+                size += 1
                 curr = root
             }
         }
