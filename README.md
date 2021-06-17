@@ -86,3 +86,10 @@ Homeworks for curses Algorithms and structures Otus 2021 January
     <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
     <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
 </p>
+
+- HW15: [Динамическое программирование / Задача про сарай ](https://github.com/c-villain/OTUS_algo/tree/main/HW15)
+<p align="left">
+    <img src="https://img.shields.io/badge/language-Swift%205.0-blue" /> 
+    <img src="https://img.shields.io/badge/IDE-Xcode-blue" /> 
+</p>
+
